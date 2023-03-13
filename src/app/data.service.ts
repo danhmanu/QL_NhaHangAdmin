@@ -1,10 +1,41 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/internal/Observable';
+import { environment } from 'src/environments/environment';
+import { SysSetting } from './models/SysSetting.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-  constructor(private htppClient: HttpClient) { }
+  // private REST_API_SERVER = environment.apiUrl;
+  private REST_API_SERVER = 'http://localhost:7770';
+  private Rest_API_Server_Random = 'https://reqres.in';
+  private httpOptions = {
+    headers: new HttpHeaders ({
+       'Content-Type':  'application/json',
+       'Access-Control-Allow-Origin': ''
+      // 'Access-Control-Allow-Methods': 'GET,PUT',
+      // 'Access-Control-Allow-Origin': 'http://localhost:4200',
+      // 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Content-Type, Accept, Accept-Language, Origin, User-Agent',
+
+    }),
+  }
+  constructor(private httpClient: HttpClient) {
+   }
+  // lấy danh sách syssetting
+  public GetAllListData(): Observable<any>
+  {
+     const url = `${this.REST_API_SERVER}/api/EMR/v1/SysSetting`;
+    //const url = 'https://randomuser.me/';
+    return this.httpClient.request<any>('Get', url);
+  }
+
+  public getRandom(page: number = 2): Observable<any> {
+    const url = this.Rest_API_Server_Random + '/api/users?page=' + page;
+    return this.httpClient.get<any>(url, this.httpOptions);
+  }
+
+
 }

@@ -19,7 +19,8 @@ import { RestaurantComponent } from './restaurant/restaurant.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

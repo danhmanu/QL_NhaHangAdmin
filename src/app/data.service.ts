@@ -15,10 +15,10 @@ export class DataService {
   private httpOptions = {
     headers: new HttpHeaders ({
        'Content-Type':  'application/json',
-       'Access-Control-Allow-Origin': ''
+       'siterf' : '1',
+      // 'Access-Control-Allow-Origin': '*',
       // 'Access-Control-Allow-Methods': 'GET,PUT',
       // 'Access-Control-Allow-Origin': 'http://localhost:4200',
-      // 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Content-Type, Accept, Accept-Language, Origin, User-Agent',
 
     }),
   }
@@ -29,7 +29,7 @@ export class DataService {
   {
      const url = `${this.REST_API_SERVER}/api/EMR/v1/SysSetting`;
     //const url = 'https://randomuser.me/';
-    return this.httpClient.request<any>('Get', url);
+    return this.httpClient.request<any>('Get', url, this.httpOptions);
   }
 
   public getRandom(page: number = 2): Observable<any> {

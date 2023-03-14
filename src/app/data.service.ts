@@ -16,6 +16,8 @@ export class DataService {
     headers: new HttpHeaders ({
        'Content-Type':  'application/json',
        'siterf' : '1',
+        'username' : 'danhhn',
+        'token' : '2321321312',
       // 'Access-Control-Allow-Origin': '*',
       // 'Access-Control-Allow-Methods': 'GET,PUT',
       // 'Access-Control-Allow-Origin': 'http://localhost:4200',
@@ -27,7 +29,7 @@ export class DataService {
   // lấy danh sách syssetting
   public GetAllListData(): Observable<any>
   {
-     const url = `${this.REST_API_SERVER}/api/EMR/v1/SysSetting`;
+     const url = `${this.REST_API_SERVER}/api/EMR/v1/ICD`;
     //const url = 'https://randomuser.me/';
     return this.httpClient.request<any>('Get', url, this.httpOptions);
   }
@@ -36,6 +38,7 @@ export class DataService {
     const url = this.Rest_API_Server_Random + '/api/users?page=' + page;
     return this.httpClient.get<any>(url, this.httpOptions);
   }
+
 
 
 }

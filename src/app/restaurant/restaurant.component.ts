@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Table } from 'primeng/table';
 import { DataService } from '../data.service';
+import { ServiceItemModel } from '../models/ServiceItem.model';
 import { SysSetting } from '../models/SysSetting.model';
 
 @Component({
@@ -10,7 +11,8 @@ import { SysSetting } from '../models/SysSetting.model';
 })
 export class RestaurantComponent implements OnInit {
 
-  public sysSetting : SysSetting[] = []; 
+  public sysSetting : ServiceItemModel[] = []; 
+  public sysSettingTemp : ServiceItemModel[] = []; 
   loading: boolean = true;
 
   public constructor (private http: DataService)
@@ -26,20 +28,25 @@ export class RestaurantComponent implements OnInit {
     // );
   }
 
-  public GetSysSetting () : void{
+  public GetSysSetting () : void
+  {
     this.loading = true;
+    // Get data
     this.http.GetAllListData().subscribe(
       (data)=>
       {
-        this.sysSetting = data.Data;
-      }
-    );
-
-    this.loading = false;
+        this.sysSettingTemp = data.Data;
+        // Kiểm tra và add
+    if(this.sysSettingTemp.length !=  0)
+    {
+      this.sysSettingTemp.forEach(element => { this.sysSetting.push(element); });
+      
+      console.log('element: ', this.sysSettingTemp);
+      this.loading = false;
+    }
+      });
   }
 
-  clear(table: Table) {
-    table.clear();
-}
+  clear(table: Table) {table.clear();}
 
 }

@@ -10,20 +10,18 @@
 <p-table [value]="UserData" [tableStyle]="{'min-width': '50rem'}" [loading]="loading">
     <ng-template pTemplate="header">
         <tr>
-            <th>Code</th>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Quantity</th>
-            <th>Quantity</th>
+            <th>idline</th>
+            <th>username</th>
+            <th>password</th>
+            <th>active</th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-SelectedItem>
         <tr>
             <td>{{SelectedItem.idline}}</td>
-            <td>{{SelectedItem.code}}</td>
-            <td>{{SelectedItem.name}}</td>
-            <td>{{SelectedItem.code}}</td>
-            <td>{{SelectedItem.name}}</td>
+            <td>{{SelectedItem.username}}</td>
+            <td>{{SelectedItem.password}}</td>
+            <td>{{SelectedItem.active}}</td>
         </tr>
     </ng-template>
 </p-table>

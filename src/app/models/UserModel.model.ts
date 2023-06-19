@@ -1,4 +1,4 @@
-export interface user{
+export interface UserModel{
     idline: string;
     username:string;
     password: string;

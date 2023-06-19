@@ -3,6 +3,7 @@ import { Table } from 'primeng/table';
 import { DataService } from '../data.service';
 import { ServiceItemModel } from '../models/ServiceItem.model';
 import { SysSetting } from '../models/SysSetting.model';
+import { user } from '../models/user.model';
 
 @Component({
   selector: 'app-restaurant',
@@ -13,6 +14,7 @@ export class RestaurantComponent implements OnInit {
 
   public sysSetting : ServiceItemModel[] = []; 
   public sysSettingTemp : ServiceItemModel[] = []; 
+  public UserData : user[] = [];
   loading: boolean = true;
 
   public constructor (private http: DataService)
@@ -35,15 +37,16 @@ export class RestaurantComponent implements OnInit {
     this.http.GetAllListData().subscribe(
       (data)=>
       {
-        this.sysSettingTemp = data.Data;
+        this.UserData = data.Data;
+        console.log('element: ',data);
         // Kiểm tra và add
-    if(this.sysSettingTemp.length !=  0)
-    {
-      this.sysSettingTemp.forEach(element => { this.sysSetting.push(element); });
-      
-      console.log('element: ', this.sysSettingTemp);
-      this.loading = false;
-    }
+        if(this.UserData.length !=  0)
+        {
+          //this.UserData.forEach(element => { this.sysSetting.push(element); });
+          
+          console.log('element: ', this.UserData);
+          this.loading = false;
+        }
       });
   }
 

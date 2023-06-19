@@ -10,26 +10,25 @@ import { SysSetting } from './models/SysSetting.model';
 export class DataService {
 
   // private REST_API_SERVER = environment.apiUrl;
-  private REST_API_SERVER = 'http://localhost:7770';
+  private REST_API_SERVER = 'https://localhost:7192';
   private Rest_API_Server_Random = 'https://reqres.in';
   private httpOptions = {
     headers: new HttpHeaders ({
-       'Content-Type':  'application/json',
-       'siterf' : '1',
-        'username' : 'danhhn',
-        'token' : '2321321312',
-      // 'Access-Control-Allow-Origin': '*',
-      // 'Access-Control-Allow-Methods': 'GET,PUT',
-      // 'Access-Control-Allow-Origin': 'http://localhost:4200',
-
+      'Content-Type':  'application/json',
+      // 'siterf' : '1',
+      // 'username' : 'danhhn',
+      // 'token' : '2321321312',
+      //'Access-Control-Allow-Methods': 'GET,PUT',
+      //'Access-Control-Allow-Origin': 'http://localhost:4200',
+      //'Access-Control-Allow-Headers': 'Content-Type, Authorization',
     }),
   }
-  constructor(private httpClient: HttpClient) {
-   }
+  constructor(private httpClient: HttpClient) { }
+
   // lấy danh sách syssetting
   public GetAllListData(): Observable<any>
   {
-     const url = `${this.REST_API_SERVER}/api/EMR/v1/ICD`;
+     const url = `${this.REST_API_SERVER}/api/User/GetUser`;
     //const url = 'https://randomuser.me/';
     return this.httpClient.request<any>('Get', url, this.httpOptions);
   }

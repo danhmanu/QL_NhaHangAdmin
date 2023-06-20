@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MenubarModule} from 'primeng/menubar';
-import {MenuItem} from 'primeng/api';
+import {MenubarModule} from 'primeng-lts/menubar';
+import {MenuItem} from 'primeng-lts/api';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,6 @@ import {MenuItem} from 'primeng/api';
 })
 export class AppComponent implements OnInit{
   title = 'QL_NhaHangAdmin';
-
   items: MenuItem[] = [];
 
     ngOnInit() {

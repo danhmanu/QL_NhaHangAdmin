@@ -20,7 +20,7 @@ export class DataService {
       // 'token' : '2321321312',
       //'Access-Control-Allow-Methods': 'GET,PUT',
       //'Access-Control-Allow-Origin': 'http://localhost:4200',
-      //'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+      //'Access-Control-Allow-Origin': '*',
     }),
   }
   constructor(private httpClient: HttpClient) { }
@@ -37,7 +37,4 @@ export class DataService {
     const url = this.Rest_API_Server_Random + '/api/users?page=' + page;
     return this.httpClient.get<any>(url, this.httpOptions);
   }
-
-
-
 }

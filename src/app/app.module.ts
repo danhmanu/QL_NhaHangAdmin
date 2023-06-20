@@ -16,6 +16,7 @@ import {DialogModule} from 'primeng/dialog';
 import {DropdownModule} from 'primeng/dropdown';
 import {ProgressBarModule} from 'primeng/progressbar';
 import {InputTextModule} from 'primeng/inputtext';
+import {MenubarModule} from 'primeng/menubar';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -52,6 +53,7 @@ import { RestaurantComponent } from './restaurant/restaurant.component';
     InputTextModule,
     ProgressBarModule,
     FormsModule,
+    MenubarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

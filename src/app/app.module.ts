@@ -25,6 +25,7 @@ import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RoleComponent } from './role/role.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
+import { TransferSlipComponent } from './transfer-slip/transfer-slip.component';
 
 
 
@@ -34,7 +35,8 @@ import { RestaurantComponent } from './restaurant/restaurant.component';
     HomeComponent,
     PageNotFoundComponent,
     RoleComponent,
-    RestaurantComponent
+    RestaurantComponent,
+    TransferSlipComponent
   ],
   imports: [
     BrowserModule,

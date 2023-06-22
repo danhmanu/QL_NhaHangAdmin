@@ -29,12 +29,17 @@ export class DataService {
   public GetAllListData(): Observable<any>
   {
      const url = `${this.REST_API_SERVER}/api/User/GetUser`;
-    //const url = 'https://randomuser.me/';
     return this.httpClient.request<any>('Get', url, this.httpOptions);
   }
 
   public getRandom(page: number = 2): Observable<any> {
     const url = this.Rest_API_Server_Random + '/api/users?page=' + page;
     return this.httpClient.get<any>(url, this.httpOptions);
+  }
+
+  public GetMethod( urlexten : string, paraurl : string): Observable<any>
+  {
+     const url = `${this.REST_API_SERVER}/`+urlexten + '/' +paraurl;
+    return this.httpClient.request<any>('Get', url, this.httpOptions);
   }
 }

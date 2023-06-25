@@ -29,8 +29,6 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true,
-    "paths": {
-      "primeng/*": ["node_modules/primeng-lts/*"]}
   
   }
 }
